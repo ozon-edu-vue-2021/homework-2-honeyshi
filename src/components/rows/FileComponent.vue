@@ -1,5 +1,8 @@
 <template>
-  <div :class="itemSelectionClasses" @click="toggleSelectItem">
+  <div
+    :class="itemSelectionClasses"
+    @click="toggleSelectItem"
+  >
     <file-icon />
     <span>{{ fileSystemItemName }}</span>
   </div>

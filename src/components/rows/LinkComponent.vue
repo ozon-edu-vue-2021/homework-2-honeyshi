@@ -1,9 +1,5 @@
 <template>
-  <div
-    :class="itemSelectionClasses"
-    v-bind:style="calculatedMarginLeft"
-    @click="toggleSelectItem"
-  >
+  <div :class="itemSelectionClasses" @click="toggleSelectItem">
     <link-icon />
     <a :href="link">{{ fileSystemItemName }}</a>
   </div>

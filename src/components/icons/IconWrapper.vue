@@ -36,5 +36,6 @@ export default {
 
 .toggle-icon-wrapper {
   margin-left: 0.5rem;
+  display: flex;
 }
 </style>
