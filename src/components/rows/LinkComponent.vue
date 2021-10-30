@@ -1,17 +1,18 @@
 <template>
-  <div :class="itemSelectionClasses" @click="toggleSelectItem">
-    <link-icon />
+  <div @click="$emit('click')">
+    <LinkIcon />
     <a :href="link">{{ fileSystemItemName }}</a>
   </div>
 </template>
 
 <script>
-import { FileSystemItemMixin, SelectionMixin } from "@/mixins";
+import { FileSystemItemMixin } from "@/mixins";
 import { LinkIcon } from "@/components/icons";
+
 export default {
   name: "LinkComponent",
   components: { LinkIcon },
-  mixins: [FileSystemItemMixin, SelectionMixin],
+  mixins: [FileSystemItemMixin],
   props: {
     link: {
       type: String,

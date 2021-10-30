@@ -1,9 +1,11 @@
 <template>
   <div>
     <h2>File System</h2>
-    <directory-component
+    <DirectoryComponent
       :fileSystemItemName="directoryName"
       :content="directoryContent"
+      :handleItemSelect="selectItem"
+      :getItemClasses="itemSelectionClasses"
     />
   </div>
 </template>
@@ -21,6 +23,26 @@ export default {
     },
     directoryContent() {
       return json.contents;
+    },
+  },
+  data() {
+    return {
+      selectedItem: "",
+    };
+  },
+  methods: {
+    selectItem(name) {
+      this.selectedItem === name
+        ? (this.selectedItem = "")
+        : (this.selectedItem = name);
+    },
+    itemSelectionClasses(name) {
+      return [
+        "item-wrapper",
+        {
+          "item-wrapper__selected": this.selectedItem === name,
+        },
+      ];
     },
   },
 };

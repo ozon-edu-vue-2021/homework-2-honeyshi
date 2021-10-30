@@ -1,7 +1,7 @@
 <template>
   <div class="directory-wrapper">
     <div class="item-wrapper" @click="expandDirectory">
-      <directory-icon />
+      <DirectoryIcon />
       <span>{{ fileSystemItemName }}</span>
       <expand-icon v-show="!isDirectoryExpanded" />
       <close-icon v-show="isDirectoryExpanded" />
@@ -10,21 +10,27 @@
       <div
         class="directory-items-container"
         v-for="(item, i) in content"
-        :key="`${item.name}-${i}`"
+        :key="`${item.name}-${fileSystemItemName}-${i}`"
       >
-        <file-component
+        <FileComponent
           v-if="item.type === 'file'"
           :fileSystemItemName="item.name"
+          @click="handleItemSelect(`${item.name}-${fileSystemItemName}-${i}`)"
+          :class="getItemClasses(`${item.name}-${fileSystemItemName}-${i}`)"
         />
-        <directory-component
+        <DirectoryComponent
           v-else-if="item.type === 'directory'"
           :fileSystemItemName="item.name"
           :content="item.contents"
+          :handleItemSelect="handleItemSelect"
+          :getItemClasses="getItemClasses"
         />
-        <link-component
+        <LinkComponent
           v-else-if="item.type === 'link'"
           :fileSystemItemName="item.name"
           :link="item.target"
+          @click="handleItemSelect(`${item.name}-${fileSystemItemName}-${i}`)"
+          :class="getItemClasses(`${item.name}-${fileSystemItemName}-${i}`)"
         />
       </div>
     </template>
@@ -52,6 +58,8 @@ export default {
       type: Array,
       default: () => [],
     },
+    handleItemSelect: Function,
+    getItemClasses: Function,
   },
   data() {
     return {

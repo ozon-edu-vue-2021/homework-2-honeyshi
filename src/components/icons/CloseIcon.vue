@@ -1,5 +1,5 @@
 <template>
-  <icon-wrapper wrapperType="Toggle">
+  <IconWrapper wrapperType="Toggle">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="17"
@@ -14,7 +14,7 @@
     >
       <polyline points="6 9 12 15 18 9"></polyline>
     </svg>
-  </icon-wrapper>
+  </IconWrapper>
 </template>
 
 <script>

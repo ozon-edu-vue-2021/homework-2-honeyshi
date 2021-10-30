@@ -1,5 +1,5 @@
 <template>
-  <icon-wrapper>
+  <IconWrapper>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="20"
@@ -17,7 +17,7 @@
       ></path>
       <polyline points="13 2 13 9 20 9"></polyline>
     </svg>
-  </icon-wrapper>
+  </IconWrapper>
 </template>
 
 <script>
@@ -27,4 +27,3 @@ export default {
   components: { IconWrapper },
 };
 </script>
-    IconWrapper
